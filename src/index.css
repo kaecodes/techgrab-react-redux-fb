@@ -1,13 +1,66 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  border: none;
+  list-style: none;
+  text-decoration: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --primary: #04046e;
+  --secondary: #05c305;
+  --white: #fff;
+}
+
+header {
+  background-color: var(--primary);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 170px;
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-items a {
+  font-size: 1.3rem;
+  color: var(--secondary);
+}
+
+.nav-items a:hover {
+  border-bottom: 2px solid var(--white);
+  width: 100%;
+  transition: border 0.2s ease-in-out;
+}
+
+.links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.links a {
+  font-size: 1rem;
+  color: var(--white);
+}
+
+.links a:hover {
+  color: var(--secondary);
+}
+
+.cart-icon {
+  display: flex;
+}
+
+.cart-icon p {
+  transform: translateY(-0.4rem);
+  font-size: 0.7rem;
 }
