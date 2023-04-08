@@ -2,12 +2,21 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import Logo from "../../assets/techgrablogo.png";
 
 const cart = (
   <NavLink to="cart" className="cart-icon">
     <FaShoppingCart />
     <p>0</p>
   </NavLink>
+);
+
+const logo = (
+  <div>
+    <NavLink to="/">
+      <img className="logo" src={Logo} alt="Tech Grab Logo" />
+    </NavLink>
+  </div>
 );
 
 const Navbar = () => {
@@ -17,7 +26,13 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
+      <div className={isOpen ? "overlay active" : "overlay"}></div>
       <ul className={isOpen ? "nav-menu active" : "nav-menu"}>
+        <div className="mobile-menu-header">
+          <img src={Logo} alt="Tech Grab Logo" />
+          <AiOutlineClose className="close-menu" onClick={handleClick} />
+        </div>
+
         <li className="nav-items">
           <NavLink to="/">Home</NavLink>
         </li>
@@ -34,7 +49,7 @@ const Navbar = () => {
       <div className="mobile">
         {cart}
         <div className="hamburger" onClick={handleClick}>
-          {isOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
+          <AiOutlineMenu />
         </div>
       </div>
     </nav>

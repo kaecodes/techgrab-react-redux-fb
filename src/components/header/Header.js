@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <header>
       {logo}
-      <Navbar />
+      <Navbar logo={logo} />
       <Links />
     </header>
   );
