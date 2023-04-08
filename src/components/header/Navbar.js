@@ -34,16 +34,24 @@ const Navbar = () => {
         </div>
 
         <li className="nav-items">
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/" onClick={handleClick}>
+            Home
+          </NavLink>
         </li>
         <li className="nav-items">
-          <NavLink to="about">About</NavLink>
+          <NavLink to="about" onClick={handleClick}>
+            About
+          </NavLink>
         </li>
         <li className="nav-items">
-          <NavLink to="contact">Contact</NavLink>
+          <NavLink to="contact" onClick={handleClick}>
+            Contact
+          </NavLink>
         </li>
         <li className="nav-items">
-          <NavLink to="shop">Shop</NavLink>
+          <NavLink to="shop" onClick={handleClick}>
+            Shop
+          </NavLink>
         </li>
       </ul>
       <div className="mobile">
