@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap");
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -13,43 +15,66 @@
   --white: #fff;
 }
 
-header {
-  background-color: var(--primary);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 1rem;
-  margin: 0 auto;
+body {
+  font-family: "Lato", sans-serif;
 }
 
 .logo {
   width: 170px;
 }
 
-nav ul {
+header {
+  background-color: var(--primary);
   display: flex;
-  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  margin: 0 auto;
 }
 
 .nav-items a {
-  font-size: 1.3rem;
   color: var(--secondary);
 }
 
-.nav-items a:hover {
+.logo {
+  width: 170px;
+}
+
+.nav-items {
+  font-size: 1.5rem;
+  color: var(--secondary);
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
+.nav-items a:hover,
+.links a:nth-child(2):hover,
+.links a:nth-child(3):hover {
   border-bottom: 2px solid var(--white);
-  width: 100%;
   transition: border 0.2s ease-in-out;
+}
+
+.nav-menu {
+  display: flex;
 }
 
 .links {
   display: flex;
-  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.2rem;
 }
 
 .links a {
-  font-size: 1rem;
   color: var(--white);
+}
+
+.links a:first-child,
+.links a:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .links a:hover {
@@ -61,6 +86,40 @@ nav ul {
 }
 
 .cart-icon p {
-  transform: translateY(-0.4rem);
-  font-size: 0.7rem;
+  transform: translateY(-0.5rem);
+  font-size: 0.8rem;
+}
+
+.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .links {
+    display: none;
+  }
+
+  .mobile {
+    display: flex;
+    gap: 1.8rem;
+    justify-content: center;
+  }
+
+  .cart-icon,
+  .hamburger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    color: var(--white);
+  }
+
+  .cart-icon p {
+    font-size: 1rem;
+    transform: translateY(-0.7rem);
+  }
 }
