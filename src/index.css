@@ -7,6 +7,7 @@
   border: none;
   list-style: none;
   text-decoration: none;
+  cursor: pointer;
 }
 
 :root {
@@ -54,6 +55,10 @@ header {
   transition: border 0.2s ease-in-out;
 }
 
+.active-link {
+  border-bottom: 2px solid var(--white);
+}
+
 .nav-menu {
   display: flex;
 }
@@ -96,6 +101,13 @@ header {
 
 .mobile-menu-header {
   display: none;
+}
+
+footer {
+  text-align: center;
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 2rem;
 }
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
@@ -154,6 +166,13 @@ header {
     display: flex;
     gap: 1.8rem;
     justify-content: center;
+  }
+
+  .mobile-icons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
   }
 
   .cart-icon,
