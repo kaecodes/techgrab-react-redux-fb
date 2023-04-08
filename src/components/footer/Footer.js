@@ -1,7 +1,10 @@
 import React from "react";
 
 const Footer = () => {
-  return <div>Footer</div>;
+  const date = new Date();
+  const year = date.getFullYear();
+
+  return <footer>&copy; {year} Tech Grab, LLC. All rights reserved.</footer>;
 };
 
 export default Footer;
