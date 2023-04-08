@@ -7,7 +7,15 @@ import {
 
 import RootLayout from "./layouts/RootLayout";
 
-import { Home, About, Contact, Shop } from "./pages/index";
+import {
+  Home,
+  About,
+  Contact,
+  Shop,
+  Login,
+  Register,
+  Reset,
+} from "./pages/index";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,6 +24,9 @@ const router = createBrowserRouter(
       <Route path="about" element={<About />} />
       <Route path="contact" element={<Contact />} />
       <Route path="shop" element={<Shop />} />
+      <Route path="login" element={<Login />} />
+      <Route path="register" element={<Register />} />
+      <Route path="reset" element={<Reset />} />
     </Route>
   )
 );

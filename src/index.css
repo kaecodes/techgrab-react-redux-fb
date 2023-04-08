@@ -25,6 +25,7 @@ body {
 }
 
 header {
+  height: 100px;
   background-color: var(--primary);
   display: flex;
   justify-content: space-between;
@@ -104,10 +105,34 @@ header {
 }
 
 footer {
+  height: 80px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   text-align: center;
   background-color: var(--primary);
   color: var(--white);
   padding: 2rem;
+}
+
+.btn {
+  padding: 1rem;
+  font-size: 1rem;
+  margin: 0.5rem auto;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: #3535f1;
+  color: var(--white);
+}
+
+.btn-danger {
+  background-color: #f14d4d;
+  color: var(--white);
 }
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
