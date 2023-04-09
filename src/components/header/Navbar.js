@@ -77,7 +77,9 @@ const Navbar = () => {
         {isOpen ? (
           <div>
             <li className="nav-items">
-              <NavLink to="login">Account</NavLink>
+              <NavLink to="login" onClick={isOpen ? handleClick : null}>
+                Account
+              </NavLink>
             </li>
           </div>
         ) : null}
