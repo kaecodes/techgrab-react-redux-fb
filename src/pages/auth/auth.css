@@ -43,3 +43,8 @@ button.google {
 form p {
   margin: 1rem auto;
 }
+
+.reset-links {
+  display: flex;
+  justify-content: space-between;
+}
