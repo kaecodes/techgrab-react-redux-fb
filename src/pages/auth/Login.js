@@ -18,7 +18,7 @@ const Login = () => {
             <input type="password" placeholder="Password" required />
             <button className="btn btn-block btn-primary">Login</button>
             <div>
-              <Link to="reset">Forgot Password?</Link>
+              <Link to="/reset">Forgot Password?</Link>
             </div>
             <p>-- or --</p>
           </form>
@@ -27,7 +27,7 @@ const Login = () => {
           </button>
           <span>
             <p>Don't have an account?</p>
-            <Link to="register">Register Now</Link>
+            <Link to="/register">Register Now</Link>
           </span>
         </div>
       </Card>
