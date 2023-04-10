@@ -4,6 +4,10 @@ import Logo from "../../assets/techgrablogo.png";
 import { useState } from "react";
 import { FaShoppingCart, FaUserCircle } from "react-icons/fa";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import { auth } from "../../firebase/config";
+import { signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 const logo = (
   <div>
@@ -25,10 +29,24 @@ const activeLink = ({ isActive }) => (isActive ? "active-link" : "");
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const navigate = useNavigate();
+
   const handleClick = () => setIsOpen(!isOpen);
+
+  const logoutUser = () => {
+    signOut(auth)
+      .then(() => {
+        toast.success("Logout Successful!");
+        navigate("/");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
 
   return (
     <header>
+      <ToastContainer />
       {logo}
       <nav className="navbar">
         <div className={isOpen ? "overlay active" : "overlay"}></div>
@@ -100,6 +118,9 @@ const Header = () => {
         </NavLink>
         <NavLink to="register">Register</NavLink>
         <NavLink to="order-history">My Orders</NavLink>
+        <NavLink to="/" onClick={logoutUser}>
+          Logout
+        </NavLink>
         {cart}
       </div>
     </header>
