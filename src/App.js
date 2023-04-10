@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 import RootLayout from "./layouts/RootLayout";
+import "react-toastify/dist/ReactToastify.css";
 
 import {
   Home,
