@@ -1,11 +1,11 @@
-import React from "react";
+import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../../assets/techgrablogo.png";
 import { useState } from "react";
 import { FaShoppingCart, FaUserCircle } from "react-icons/fa";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { auth } from "../../firebase/config";
-import { signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -28,8 +28,21 @@ const activeLink = ({ isActive }) => (isActive ? "active-link" : "");
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [displayName, setDisplayName] = useState("");
   const navigate = useNavigate();
+
+  // Monitor currently sign in user
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid;
+        console.log(user.displayName);
+        setDisplayName(user.displayName);
+      } else {
+        setDisplayName("");
+      }
+    });
+  }, []);
 
   const handleClick = () => setIsOpen(!isOpen);
 
@@ -114,12 +127,13 @@ const Header = () => {
       </nav>
       <div className="links">
         <NavLink to="login">
-          <FaUserCircle />
+          {displayName ? `Hi, ${displayName}` : <FaUserCircle />}
         </NavLink>
         <NavLink to="register">Register</NavLink>
         <NavLink to="order-history">My Orders</NavLink>
         <NavLink to="/" onClick={logoutUser}>
-          Logout
+          {displayName ? "Logout" : ""}
+          {/* Logout */}
         </NavLink>
         {cart}
       </div>
