@@ -8,6 +8,8 @@ import { auth } from "../../firebase/config";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { SET_ACTIVE_USER } from "../../redux/features/authSlice";
 
 const logo = (
   <div>
@@ -30,6 +32,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [displayName, setDisplayName] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   // Monitor currently sign in user
   useEffect(() => {
@@ -37,7 +40,22 @@ const Header = () => {
       if (user) {
         const uid = user.uid;
         console.log(user.displayName);
-        setDisplayName(user.displayName);
+        // Set default username/userID - Remove last 10 characters
+        if (user.displayName == null) {
+          const u1 = user.email.slice(0, -10);
+          const uName = u1.charAt(0).toUpperCase() + u1.slice(1);
+          setDisplayName(uName);
+        } else {
+          setDisplayName(user.displayName);
+        }
+
+        dispatch(
+          SET_ACTIVE_USER({
+            email: user.email,
+            userName: user.displayName ? user.displayName : displayName,
+            userID: uid,
+          })
+        );
       } else {
         setDisplayName("");
       }
