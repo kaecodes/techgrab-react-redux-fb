@@ -89,7 +89,12 @@ const Header = () => {
             <div className="mobile-menu-header">
               <img src={Logo} alt="Tech Grab Logo" />
               <div className="mobile-icons">
-                {cart}
+                <ShowOnLogin>
+                  <a href="#home" style={{ color: "var(--secondary)" }}>
+                    <FaUserCircle />
+                    &nbsp; Hi, {displayName}
+                  </a>
+                </ShowOnLogin>
                 <AiOutlineClose className="close-menu" onClick={handleClick} />
               </div>
             </div>
@@ -132,11 +137,33 @@ const Header = () => {
             </li>
             {isOpen ? (
               <div>
-                <li className="nav-items">
+                <ShowOnLogout>
+                  <li className="nav-items">
+                    <NavLink to="login" onClick={handleClick}>
+                      <FaUserCircle />
+                      &nbsp; Login
+                    </NavLink>
+                  </li>
+                </ShowOnLogout>
+                <ShowOnLogin>
+                  <li className="nav-items">
+                    <NavLink
+                      to="/"
+                      onClick={() => {
+                        logoutUser();
+                        handleClick();
+                      }}
+                    >
+                      Logout
+                    </NavLink>
+                  </li>
+                </ShowOnLogin>
+
+                {/* <li className="nav-items">
                   <NavLink to="login" onClick={isOpen ? handleClick : null}>
                     Account
                   </NavLink>
-                </li>
+                </li> */}
               </div>
             ) : null}
           </ul>
