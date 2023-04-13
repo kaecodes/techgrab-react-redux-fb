@@ -11,6 +11,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { SET_ACTIVE_USER } from "../../redux/features/authSlice";
 import { REMOVE_ACTIVE_USER } from "../../redux/features/authSlice";
+import ShowOnLogin, { ShowOnLogout } from "../hiddenLink/hiddenLink";
 
 const logo = (
   <div>
@@ -42,7 +43,7 @@ const Header = () => {
         const uid = user.uid;
         // Set default username/userID - Remove all characters after @ including @
         if (user.displayName == null) {
-          const u1 = user.email.substring(0, user.email.indexOf("@"))
+          const u1 = user.email.substring(0, user.email.indexOf("@"));
           const uName = u1.charAt(0).toUpperCase() + u1.slice(1);
           setDisplayName(uName);
         } else {
@@ -58,7 +59,7 @@ const Header = () => {
         );
       } else {
         setDisplayName("");
-        dispatch(REMOVE_ACTIVE_USER())
+        dispatch(REMOVE_ACTIVE_USER());
       }
     });
   }, [dispatch, displayName]);
@@ -145,15 +146,27 @@ const Header = () => {
         </div>
       </nav>
       <div className="links">
-        <NavLink to="login">
-          {displayName ? `Hi, ${displayName}` : <FaUserCircle />}
-        </NavLink>
-        <NavLink to="register">Register</NavLink>
-        <NavLink to="order-history">My Orders</NavLink>
-        <NavLink to="/" onClick={logoutUser}>
-          {displayName ? "Logout" : ""}
-          {/* Logout */}
-        </NavLink>
+        <ShowOnLogout>
+          <NavLink to="login">
+            <FaUserCircle />
+            &nbsp; Login
+          </NavLink>
+        </ShowOnLogout>
+        <ShowOnLogin>
+          <a href="#home" style={{ color: "var(--secondary)" }}>
+            <FaUserCircle />
+            &nbsp; Hi, {displayName}
+          </a>
+        </ShowOnLogin>
+        <ShowOnLogin>
+          <NavLink to="order-history">My Orders</NavLink>
+        </ShowOnLogin>
+        <ShowOnLogin>
+          <NavLink to="/" onClick={logoutUser}>
+            Logout
+          </NavLink>
+        </ShowOnLogin>
+
         {cart}
       </div>
     </header>
