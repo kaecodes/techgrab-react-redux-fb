@@ -8,6 +8,7 @@ import { auth } from "../../firebase/config";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import { SET_ACTIVE_USER } from "../../redux/features/authSlice";
 import { REMOVE_ACTIVE_USER } from "../../redux/features/authSlice";
@@ -78,98 +79,99 @@ const Header = () => {
   };
 
   return (
-    <header>
+    <>
       <ToastContainer />
-      {logo}
-      <nav className="navbar">
-        <div className={isOpen ? "overlay active" : "overlay"}></div>
-        <ul className={isOpen ? "nav-menu active" : "nav-menu"}>
-          <div className="mobile-menu-header">
-            <img src={Logo} alt="Tech Grab Logo" />
-            <div className="mobile-icons">
-              {cart}
-              <AiOutlineClose className="close-menu" onClick={handleClick} />
+      <header>
+        <div>{logo}</div>
+        <nav className="navbar">
+          <div className={isOpen ? "overlay active" : "overlay"}></div>
+          <ul className={isOpen ? "nav-menu active" : "nav-menu"}>
+            <div className="mobile-menu-header">
+              <img src={Logo} alt="Tech Grab Logo" />
+              <div className="mobile-icons">
+                {cart}
+                <AiOutlineClose className="close-menu" onClick={handleClick} />
+              </div>
+            </div>
+
+            <li className="nav-items">
+              <NavLink
+                to="/"
+                onClick={isOpen ? handleClick : null}
+                className={activeLink}
+              >
+                Home
+              </NavLink>
+            </li>
+            <li className="nav-items">
+              <NavLink
+                to="about"
+                onClick={isOpen ? handleClick : null}
+                className={activeLink}
+              >
+                About
+              </NavLink>
+            </li>
+            <li className="nav-items">
+              <NavLink
+                to="contact"
+                onClick={isOpen ? handleClick : null}
+                className={activeLink}
+              >
+                Contact
+              </NavLink>
+            </li>
+            <li className="nav-items">
+              <NavLink
+                to="shop"
+                onClick={isOpen ? handleClick : null}
+                className={activeLink}
+              >
+                Shop
+              </NavLink>
+            </li>
+            {isOpen ? (
+              <div>
+                <li className="nav-items">
+                  <NavLink to="login" onClick={isOpen ? handleClick : null}>
+                    Account
+                  </NavLink>
+                </li>
+              </div>
+            ) : null}
+          </ul>
+          <div className="mobile">
+            {cart}
+            <div className="hamburger" onClick={handleClick}>
+              <AiOutlineMenu className="menu-bars" />
             </div>
           </div>
-
-          <li className="nav-items">
-            <NavLink
-              to="/"
-              onClick={isOpen ? handleClick : null}
-              className={activeLink}
-            >
-              Home
+        </nav>
+        <div className="links">
+          <ShowOnLogout>
+            <NavLink to="login">
+              <FaUserCircle />
+              &nbsp; Login
             </NavLink>
-          </li>
-          <li className="nav-items">
-            <NavLink
-              to="about"
-              onClick={isOpen ? handleClick : null}
-              className={activeLink}
-            >
-              About
+          </ShowOnLogout>
+          <ShowOnLogin>
+            <a href="#home" style={{ color: "var(--secondary)" }}>
+              <FaUserCircle />
+              &nbsp; Hi, {displayName}
+            </a>
+          </ShowOnLogin>
+          <ShowOnLogin>
+            <NavLink to="order-history">My Orders</NavLink>
+          </ShowOnLogin>
+          <ShowOnLogin>
+            <NavLink to="/" onClick={logoutUser}>
+              Logout
             </NavLink>
-          </li>
-          <li className="nav-items">
-            <NavLink
-              to="contact"
-              onClick={isOpen ? handleClick : null}
-              className={activeLink}
-            >
-              Contact
-            </NavLink>
-          </li>
-          <li className="nav-items">
-            <NavLink
-              to="shop"
-              onClick={isOpen ? handleClick : null}
-              className={activeLink}
-            >
-              Shop
-            </NavLink>
-          </li>
-          {isOpen ? (
-            <div>
-              <li className="nav-items">
-                <NavLink to="login" onClick={isOpen ? handleClick : null}>
-                  Account
-                </NavLink>
-              </li>
-            </div>
-          ) : null}
-        </ul>
-        <div className="mobile">
+          </ShowOnLogin>
           {cart}
-          <div className="hamburger" onClick={handleClick}>
-            <AiOutlineMenu className="menu-bars" />
-          </div>
         </div>
-      </nav>
-      <div className="links">
-        <ShowOnLogout>
-          <NavLink to="login">
-            <FaUserCircle />
-            &nbsp; Login
-          </NavLink>
-        </ShowOnLogout>
-        <ShowOnLogin>
-          <a href="#home" style={{ color: "var(--secondary)" }}>
-            <FaUserCircle />
-            &nbsp; Hi, {displayName}
-          </a>
-        </ShowOnLogin>
-        <ShowOnLogin>
-          <NavLink to="order-history">My Orders</NavLink>
-        </ShowOnLogin>
-        <ShowOnLogin>
-          <NavLink to="/" onClick={logoutUser}>
-            Logout
-          </NavLink>
-        </ShowOnLogin>
-
-        {cart}
-      </div>
-    </header>
+      </header>
+    </>
   );
 };
 
