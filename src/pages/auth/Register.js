@@ -20,7 +20,7 @@ const Register = () => {
 
   const registerUser = (e) => {
     e.preventDefault();
-    if (password != cPassword) {
+    if (password !== cPassword) {
       toast.error("Passwords do not match!");
     }
 

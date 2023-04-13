@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { SET_ACTIVE_USER } from "../../redux/features/authSlice";
+import { REMOVE_ACTIVE_USER } from "../../redux/features/authSlice";
 
 const logo = (
   <div>
@@ -39,7 +40,6 @@ const Header = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         const uid = user.uid;
-        console.log(user.displayName);
         // Set default username/userID - Remove all characters after @ including @
         if (user.displayName == null) {
           const u1 = user.email.substring(0, user.email.indexOf("@"))
@@ -58,9 +58,10 @@ const Header = () => {
         );
       } else {
         setDisplayName("");
+        dispatch(REMOVE_ACTIVE_USER())
       }
     });
-  }, []);
+  }, [dispatch, displayName]);
 
   const handleClick = () => setIsOpen(!isOpen);
 
