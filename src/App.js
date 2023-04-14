@@ -16,7 +16,9 @@ import {
   Login,
   Register,
   Reset,
+  Admin,
 } from "./pages/index";
+import AdminOnlyRoute from "./components/adminOnlyRoute/AdminOnlyRoute";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,6 +30,15 @@ const router = createBrowserRouter(
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/reset" element={<Reset />} />
+
+      <Route
+        path="/admin/*"
+        element={
+          <AdminOnlyRoute>
+            <Admin />
+          </AdminOnlyRoute>
+        }
+      />
     </Route>
   )
 );
