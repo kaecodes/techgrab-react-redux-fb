@@ -135,6 +135,9 @@ footer {
   color: var(--white);
 }
 
+.login-img-container img {
+  width: 500px;
+}
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   .nav-items {

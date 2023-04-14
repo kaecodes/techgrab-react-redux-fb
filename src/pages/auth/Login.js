@@ -60,7 +60,7 @@ const Login = () => {
       {isLoading && <Loader />}
       <section className="login-container">
         <div className="login-img-container">
-          <img src={loginImg} alt="Login" width="500" />
+          <img src={loginImg} alt="Login" />
         </div>
         <Card className="login-card">
           <div className="login-form">
