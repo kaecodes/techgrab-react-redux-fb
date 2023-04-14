@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import Logo from "../../assets/techgrablogo.png";
 import { useState } from "react";
 import { FaShoppingCart, FaUserCircle } from "react-icons/fa";
@@ -13,7 +13,9 @@ import { useDispatch } from "react-redux";
 import { SET_ACTIVE_USER } from "../../redux/features/authSlice";
 import { REMOVE_ACTIVE_USER } from "../../redux/features/authSlice";
 import ShowOnLogin, { ShowOnLogout } from "../hiddenLink/hiddenLink";
-import AdminOnlyRoute from "../adminOnlyRoute/AdminOnlyRoute";
+import AdminOnlyRoute, {
+  AdminOnlyLink,
+} from "../adminOnlyRoute/AdminOnlyRoute";
 
 const logo = (
   <div>
@@ -100,9 +102,11 @@ const Header = () => {
               </div>
             </div>
             <li>
-              <AdminOnlyRoute>
-                <button className="btn btn-primary">Admin</button>
-              </AdminOnlyRoute>
+              <AdminOnlyLink>
+                <Link to="/admin/home">
+                  <button className="btn btn-primary">Admin</button>
+                </Link>
+              </AdminOnlyLink>
             </li>
 
             <li className="nav-items">
