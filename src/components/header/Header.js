@@ -13,6 +13,7 @@ import { useDispatch } from "react-redux";
 import { SET_ACTIVE_USER } from "../../redux/features/authSlice";
 import { REMOVE_ACTIVE_USER } from "../../redux/features/authSlice";
 import ShowOnLogin, { ShowOnLogout } from "../hiddenLink/hiddenLink";
+import AdminOnlyRoute from "../adminOnlyRoute/AdminOnlyRoute";
 
 const logo = (
   <div>
@@ -98,6 +99,11 @@ const Header = () => {
                 <AiOutlineClose className="close-menu" onClick={handleClick} />
               </div>
             </div>
+            <li>
+              <AdminOnlyRoute>
+                <button className="btn btn-primary">Admin</button>
+              </AdminOnlyRoute>
+            </li>
 
             <li className="nav-items">
               <NavLink
