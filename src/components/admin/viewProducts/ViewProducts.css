@@ -1,0 +1,35 @@
+.table {
+  margin: 2rem;
+}
+
+h2 {
+  padding: 1rem;
+}
+
+table {
+  border: 1px solid gray;
+  padding: 1rem;
+}
+
+th {
+  padding: 0 0 1rem;
+  border-bottom: 1px solid gray;
+}
+
+td {
+  padding: 1rem;
+}
+
+tr th {
+  background-color: #3535f1;
+  color: var(--white);
+  padding-top: 1rem;
+}
+
+tr {
+  text-align: center;
+}
+
+tr:nth-of-type(odd) {
+  background-color: lightgrey;
+}
