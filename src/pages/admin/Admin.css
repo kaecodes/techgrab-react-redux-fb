@@ -1,11 +1,11 @@
 .admin-container {
-    display: flex;
+  display: flex;
 }
 
 .navbar {
-    width: 40vh;
+  width: 25vw;
 }
 
 .content {
-    width: 60vh;
+  width: 75vw;
 }
