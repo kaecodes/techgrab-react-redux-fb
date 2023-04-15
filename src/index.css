@@ -105,8 +105,8 @@ header {
 }
 
 footer {
-  height: 80px;
-  position: fixed;
+  /* height: 80px; */
+  position: relative;
   bottom: 0;
   width: 100%;
   text-align: center;
