@@ -1,14 +1,13 @@
 import { useSelector } from "react-redux";
-import { FaUserCircle } from "react-icons/fa"; 
-import { selectUserName } from "../../../redux/features/authSlice"; 
+import { FaUserCircle } from "react-icons/fa";
+import { selectUserName } from "../../../redux/features/authSlice";
 import { NavLink } from "react-router-dom";
-import "./Navbar.css"; 
+import "./Navbar.css";
 
 const activeLink = ({ isActive }) => (isActive ? "active-link" : "");
 
 const Navbar = () => {
-
-  const userName = useSelector(selectUserName); 
+  const userName = useSelector(selectUserName);
 
   return (
     <div className="navbar">
@@ -29,7 +28,7 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/admin/add-product" className={activeLink}>
+            <NavLink to="/admin/add-product/ADD" className={activeLink}>
               Add Product
             </NavLink>
           </li>

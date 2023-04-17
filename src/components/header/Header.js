@@ -13,9 +13,7 @@ import { useDispatch } from "react-redux";
 import { SET_ACTIVE_USER } from "../../redux/features/authSlice";
 import { REMOVE_ACTIVE_USER } from "../../redux/features/authSlice";
 import ShowOnLogin, { ShowOnLogout } from "../hiddenLink/hiddenLink";
-import AdminOnlyRoute, {
-  AdminOnlyLink,
-} from "../adminOnlyRoute/AdminOnlyRoute";
+import { AdminOnlyLink } from "../adminOnlyRoute/AdminOnlyRoute";
 
 const logo = (
   <div>
