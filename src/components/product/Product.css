@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+}
+
+.filter {
+  width: 30%;
+}
+
+.content {
+  width: 70%;
+}

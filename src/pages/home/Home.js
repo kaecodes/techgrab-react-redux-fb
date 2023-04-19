@@ -3,7 +3,9 @@ import React from "react";
 const Home = () => {
   return (
     <div>
-      <h1>Home Page</h1>
+      {/* Hero Content */}
+      <h1>Homepage</h1>
+      {/* Featured Products */}
     </div>
   );
 };
