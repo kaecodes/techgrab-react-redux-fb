@@ -8,6 +8,7 @@ import {
   STORE_PRODUCTS,
   selectProducts,
 } from "../../redux/features/productSlice";
+import spinner from "../../assets/spinner.jpg";
 
 const Product = () => {
   const { data, isLoading } = useFetchCollection("products");
@@ -24,11 +25,18 @@ const Product = () => {
   return (
     <section>
       <div className="container">
-        <aside className="filter">
-          <ProductFilter />
-        </aside>
+        <aside className="filter">{isLoading ? null : <ProductFilter />}</aside>
         <div className="content">
-          <ProductList products={products} />
+          {isLoading ? (
+            <img
+              src={spinner}
+              alt="Loading..."
+              style={{ width: "150px" }}
+              className="spinner"
+            />
+          ) : (
+            <ProductList products={products} />
+          )}
         </div>
       </div>
     </section>
