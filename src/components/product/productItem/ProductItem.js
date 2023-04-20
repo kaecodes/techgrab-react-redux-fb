@@ -12,7 +12,7 @@ const ProductItem = ({ product, grid, id, name, price, desc, imageURL }) => {
 
   return (
     <Card className={grid ? "grid-view" : "list-view"}>
-      <Link to={`/product-details`}>
+      <Link to={`/product-details/${id}`}>
         <div className="img">
           <img src={imageURL} alt={name} />
         </div>
