@@ -34,7 +34,7 @@ const ProductDetails = () => {
       <div className={`details-container product-details`}>
         <h2>Product Details</h2>
         <div>
-          <Link to="#/products">&larr; Back to Products</Link>
+          <Link to="/shop">&larr; Back to Products</Link>
         </div>
         {product === null ? (
           <img src={spinnerImg} alt="Loading..." />
