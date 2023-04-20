@@ -43,7 +43,7 @@ const ProductList = ({ products }) => {
             {products.map((product) => {
               return (
                 <div key={product.id}>
-                  <ProductItem {...products} grid={grid} product={product} />
+                  <ProductItem {...product} grid={grid} product={product} />
                 </div>
               );
             })}
