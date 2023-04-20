@@ -18,6 +18,7 @@
 
 body {
   font-family: "Lato", sans-serif;
+  position: relative;
 }
 
 .logo {
@@ -106,7 +107,7 @@ header {
 
 footer {
   /* height: 80px; */
-  position: relative;
+  position: fixed;
   bottom: 0;
   width: 100%;
   text-align: center;

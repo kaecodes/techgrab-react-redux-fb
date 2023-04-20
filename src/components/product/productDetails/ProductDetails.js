@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { db } from "../../../firebase/config";
 import { toast } from "react-toastify";
 import spinnerImg from "../../../assets/spinner.jpg";
+import Card from "../../card/Card";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -38,38 +39,40 @@ const ProductDetails = () => {
             <Link to="/shop">&larr; Back to Products</Link>
           </div>
         </div>
-        {product === null ? (
-          <img src={spinnerImg} alt="Loading..." />
-        ) : (
-          <>
-            <div className="product-details-container">
-              <div className="img">
-                <img src={product.imageURL} alt={product.name} />
-              </div>
-              <div className="content">
-                <h3>{product.name}</h3>
-                <p className="price">{`$${product.price}`}</p>
-                <p>{product.desc}</p>
-                <p>
-                  <strong>SKU: </strong>
-                  {product.id}
-                </p>
-                <p>
-                  <strong>Brand: </strong>
-                  {product.brand}
-                </p>
-                <div className="count">
-                  <button className="remove">-</button>
-                  <p>
-                    <strong>1</strong>
-                  </p>
-                  <button className="add">+</button>
+        <Card>
+          {product === null ? (
+            <img src={spinnerImg} alt="Loading..." />
+          ) : (
+            <>
+              <div className="product-details-container">
+                <div className="img">
+                  <img src={product.imageURL} alt={product.name} />
                 </div>
-                <button className="btn btn-primary">Add to Cart</button>
+                <div className="content">
+                  <h3>{product.name}</h3>
+                  <p className="price">{`$${product.price}`}</p>
+                  <p>{product.desc}</p>
+                  <p>
+                    <strong>SKU: </strong>
+                    {product.id}
+                  </p>
+                  <p>
+                    <strong>Brand: </strong>
+                    {product.brand}
+                  </p>
+                  <div className="count">
+                    <button className="remove">-</button>
+                    <p>
+                      <strong>1</strong>
+                    </p>
+                    <button className="add">+</button>
+                  </div>
+                  <button className="btn btn-primary">Add to Cart</button>
+                </div>
               </div>
-            </div>
-          </>
-        )}
+            </>
+          )}
+        </Card>
       </div>
     </section>
   );
