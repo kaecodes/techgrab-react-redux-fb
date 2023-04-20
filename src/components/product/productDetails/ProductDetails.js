@@ -31,16 +31,18 @@ const ProductDetails = () => {
 
   return (
     <section>
-      <div className={`details-container product-details`}>
-        <h2>Product Details</h2>
-        <div>
-          <Link to="/shop">&larr; Back to Products</Link>
+      <div className="details-container">
+        <div className="product-details">
+          <h2>Product Details</h2>
+          <div>
+            <Link to="/shop">&larr; Back to Products</Link>
+          </div>
         </div>
         {product === null ? (
           <img src={spinnerImg} alt="Loading..." />
         ) : (
           <>
-            <div className="details">
+            <div className="product-details-container">
               <div className="img">
                 <img src={product.imageURL} alt={product.name} />
               </div>
@@ -57,11 +59,11 @@ const ProductDetails = () => {
                   {product.brand}
                 </p>
                 <div className="count">
-                  <button>-</button>
+                  <button className="remove">-</button>
                   <p>
                     <strong>1</strong>
                   </p>
-                  <button>+</button>
+                  <button className="add">+</button>
                 </div>
                 <button className="btn btn-primary">Add to Cart</button>
               </div>
