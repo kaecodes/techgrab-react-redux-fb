@@ -1,11 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { selectProducts } from "../../../redux/features/productSlice";
+import { FILTER_BY_CATEGORY } from "../../../redux/features/filterSlice";
+import "../Product.css";
 
-const productFilter = () => {
+const ProductFilter = () => {
+  const [category, setCategory] = useState("All Products");
+  const products = useSelector(selectProducts);
+  const dispatch = useDispatch();
+
+  const allCategories = [
+    "All Products",
+    ...new Set(products.map((product) => product.category)),
+  ];
+
+  // console.log(allCategories);
+
+  const filterProducts = (cat) => {
+    setCategory(cat);
+    dispatch(FILTER_BY_CATEGORY({ products, category: cat }));
+  };
+
   return (
     <div className="filter">
       <h3>Categories</h3>
       <div className="choose-categories">
-        <button>All Products</button>
+        {allCategories.map((cat, index) => {
+          return (
+            <button
+              key={index}
+              type="button"
+              className={`${category}` === cat ? "active-cat" : null}
+              onClick={() => filterProducts(cat)}
+            >
+              &#8250; {cat}
+            </button>
+          );
+        })}
       </div>
       <h3>Brand</h3>
       <div className="brands">
@@ -23,4 +54,4 @@ const productFilter = () => {
   );
 };
 
-export default productFilter;
+export default ProductFilter;

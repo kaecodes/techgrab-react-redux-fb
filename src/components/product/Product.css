@@ -174,3 +174,21 @@ div.filter button.clear {
   margin: 0;
   width: 30%;
 }
+
+.choose-categories {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1rem;
+}
+
+.choose-categories button {
+  /* border-bottom: 1px solid #cbc8c8; */
+  font-size: 1rem;
+  padding-bottom: 0.5rem;
+  background-color: transparent;
+}
+
+.choose-categories button.active-cat {
+  border-bottom: 3px solid red;
+}
