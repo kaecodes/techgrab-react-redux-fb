@@ -15,6 +15,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1rem;
+  border-bottom: 2px solid #cbc8c8;
 }
 
 .icons {
@@ -38,4 +39,63 @@
   align-items: center;
   padding: 0.5rem;
   width: 20rem;
+}
+
+.img {
+  display: flex;
+  justify-content: center;
+}
+
+.img img {
+  width: 200px;
+}
+
+.product-list .grid-view {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.product-list .list-view .single-product {
+  width: 100%;
+  padding: 0 2rem;
+  margin-top: 1rem;
+}
+
+.list-view .single-product .card {
+  display: flex;
+}
+
+.list-view .single-product .card .content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: start;
+  margin: 1rem;
+}
+
+.list-view .single-product .card .content button {
+  margin-left: 0;
+}
+
+.single-product {
+  width: 30%;
+  text-align: center;
+}
+
+.single-product .card {
+  width: 100%;
+}
+
+.single-product .card .content {
+  width: 100%;
+}
+
+.content .details p {
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 0.5rem 0;
 }

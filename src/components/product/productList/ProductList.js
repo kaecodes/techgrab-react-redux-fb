@@ -42,7 +42,7 @@ const ProductList = ({ products }) => {
           <>
             {products.map((product) => {
               return (
-                <div key={product.id}>
+                <div key={product.id} className="single-product">
                   <ProductItem {...product} grid={grid} product={product} />
                 </div>
               );

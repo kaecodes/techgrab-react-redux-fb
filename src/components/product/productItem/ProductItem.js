@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Card from "../../card/Card";
+import "../Product.css";
 
 const ProductItem = ({ product, grid, id, name, price, desc, imageURL }) => {
   const shortenText = (text, n) => {
@@ -20,7 +21,7 @@ const ProductItem = ({ product, grid, id, name, price, desc, imageURL }) => {
       <div className="content">
         <div className="details">
           <p>{`$${price}`}</p>
-          <h4>{shortenText(name, 18)}</h4>
+          {!grid ? <h4>{name}</h4> : <h4>{shortenText(name, 18)}</h4>}
         </div>
         {!grid && <p className="desc">{shortenText(desc, 200)}</p>}
         <button className="btn btn-primary">Add to Cart</button>
